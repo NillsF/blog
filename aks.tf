@@ -23,6 +23,12 @@ resource "azurerm_kubernetes_cluster" "test" {
 
 }
 
+resource "azurerm_role_assignment" "test" {
+  scope                = "${azurerm_resource_group.apim-aks.id}"
+  role_definition_name = "Contributor"
+  principal_id         = "${azuread_service_principal.aksapim.id}"
+}
+
 output "client_certificate" {
   value = "${azurerm_kubernetes_cluster.test.kube_config.0.client_certificate}"
 }
