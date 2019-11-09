@@ -1,0 +1,1 @@
+kubectl create configmap index-green-v1 --from-file=index.html
