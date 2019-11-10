@@ -1,1 +1,1 @@
-kubectl create configmap index-blue-v1 --from-file=index.html
+kubectl create configmap index-blue-v1.1 --from-file=index.html
