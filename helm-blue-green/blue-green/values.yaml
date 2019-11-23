@@ -1,0 +1,11 @@
+# Default values for blue-green.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+blue:
+  version: 1
+
+green:
+  version: 1
+
+production: blue
