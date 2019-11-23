@@ -46,7 +46,7 @@ jobs:
       kubernetesServiceConnection: 'k8s-cluster-nf-keda-default-1574378163229'
       command: 'upgrade'
       chartType: 'FilePath'
-      chartPath: 'helm-blue-green/blue-green/Chart.yaml'
+      chartPath: 'helm-blue-green/blue-green/'
       releaseName: 'bluegreen'
       overrideValues: '$(color).version=$(version)'
       arguments: '--reuse-values'
