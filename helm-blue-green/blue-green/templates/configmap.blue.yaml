@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  index.html: "<html>\r\n <head>\r\n  <title>Blue</title>\r\n </head>\r\n <body bgcolor=\"#11a7f7\">\r\n
+    \ <h1>V{{ .Values.blue.version }}</h1>\r\n </body>\r\n</html>"
+kind: ConfigMap
+metadata:
+  name: index-blue-v{{ .Values.blue.version }}

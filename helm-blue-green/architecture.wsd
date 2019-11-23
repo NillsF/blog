@@ -1,0 +1,27 @@
+@startuml Kubernetes blue-green
+
+title Kubernetes blue-green deployment
+
+actor "End User" as eu
+
+frame "K8S Cluster"{
+    node "Service Production" as sp
+
+    frame "Deployment Blue" as db #DodgerBlue{
+        node "Pod 1" as pb1
+        node "Pod N" as pbn
+    }
+
+    frame "Deployment Green" as dg #Green{
+    node "Pod 1" as pg1
+    node "Pod N" as pgn
+    }
+}
+
+eu --> sp
+
+
+sp --> db : "if selector is blue"
+sp --> dg : "if selector is green"
+
+@enduml
