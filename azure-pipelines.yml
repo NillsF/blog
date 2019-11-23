@@ -20,3 +20,4 @@ jobs:
       connectionType: 'Kubernetes Service Connection'
       kubernetesServiceConnection: 'k8s-cluster-nf-keda-default-1574378163229'
       command: 'ls'
+      
