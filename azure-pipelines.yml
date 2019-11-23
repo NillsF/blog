@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 jobs:
-- job: Update-version
+- job: Update_version
   steps:
   - task: HelmInstaller@1
     inputs:
