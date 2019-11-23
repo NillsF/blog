@@ -9,12 +9,14 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- task: HelmInstaller@1
-  inputs:
-    helmVersionToInstall: '3.0.0'
-- task: HelmDeploy@0
-  inputs:
-    connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceConnection: 'k8s-cluster-nf-keda-default-1574378163229'
-    command: 'ls'
+jobs:
+- job: Update-version
+  steps:
+  - task: HelmInstaller@1
+    inputs:
+      helmVersionToInstall: '3.0.0'
+  - task: HelmDeploy@0
+    inputs:
+      connectionType: 'Kubernetes Service Connection'
+      kubernetesServiceConnection: 'k8s-cluster-nf-keda-default-1574378163229'
+      command: 'ls'
