@@ -7,9 +7,6 @@
 trigger:
 - master
 
-variables:
-  version: 1
-
 pool:
   vmImage: 'ubuntu-latest'
 
