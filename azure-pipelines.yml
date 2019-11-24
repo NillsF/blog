@@ -35,10 +35,10 @@ jobs:
       script: |
         color=`kubectl get svc production -o yaml | grep color | awk -F ' ' '{print $2}'`
         echo $color
-        if [$color == "blue"]; then
-          echo "##vso[task.setvariable variable=color]green"
+        if [ "$color" = "blue" ]; then
+          echo "green"
         else
-          echo "##vso[task.setvariable variable=color]blue"
+          echo "blue"
         fi
   - task: HelmDeploy@0
     name: Update_version
