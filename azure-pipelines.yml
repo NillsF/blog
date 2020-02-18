@@ -45,7 +45,6 @@ jobs:
       script: |
         ls
         pwd
-        tree
   - task: HelmDeploy@0
     name: Update_version
     inputs:
