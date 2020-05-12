@@ -1,13 +1,13 @@
-APPID=$(az ad app create \
-    --display-name "aks-secret-sp" \
-    --identifier-uris "https://aks-secret-sp" \
-    --query appId -o tsv)
-
-SECRET=$(az ad sp credential reset \
-    --name $APPID \
-    --credential-description "aks-secret-pw" \
-    --query password -o tsv)
+SP=`az ad sp create-for-rbac --skip-assignment`
+APPID=`echo $SP | jq .appId`
+APPID=`echo "${APPID//\"}"`
+SECRET=`echo $SP | jq .password`
+SECRET=`echo "${SECRET//\"}"`
 
 az keyvault set-policy -n aks-secret-nf \
     --object-id $APPID --secret-permissions get list
-
+    
+az keyvault secret set --vault-name aks-secret-nf \
+    --name secret1 --value superSecret1
+az keyvault secret set --vault-name aks-secret-nf \
+    --name secret2 --value verySuperSecret2
