@@ -1,0 +1,38 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+    },
+    "functions": [
+    ],
+    "variables": {
+    },
+    "resources": [
+        {
+            "name": "deployment-script-only",
+            "type": "Microsoft.Resources/deploymentScripts",
+            "apiVersion": "2019-10-01-preview",
+            "identity": {
+                "type": "UserAssigned",
+                "userAssignedIdentities": {
+                    "/subscriptions/d19dddf3-9520-4226-a313-ae8ee08675e5/resourceGroups/deployment-script-demo/providers/Microsoft.ManagedIdentity/userAssignedIdentities/deployment-script-to-queue": {}
+                }
+            },
+            "location": "[resourceGroup().location]",
+            "kind": "AzurePowerShell",
+            "properties": {
+                "scriptContent":"
+                Connect-AzAccount -Identity 
+                $ctx = New-AzStorageContext -StorageAccountName nfwestus2 -UseConnectedAccount
+                $queue = Get-AzStorageQueue –Name deployment-script –Context $ctx
+                $queueMessage = [Microsoft.Azure.Storage.Queue.CloudQueueMessage]::new('Need to pass in output from NIC in here.')
+                $queue.CloudQueue.AddMessageAsync($QueueMessage)
+                ",
+                "azPowerShellVersion":"2.7",
+                "retentionInterval": "P30D"
+            }
+        }
+    ],
+    "outputs": {
+    }
+}
