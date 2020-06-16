@@ -1,0 +1,42 @@
+@startuml
+cloud internet
+frame "MSDN subscription" as MSDN {
+
+    frame "Customer VNET" as customer_vnet{
+        frame "App subnet" as customer_subnet{
+            rectangle "Test VM" as vm
+            boundary "Private Link endpoint"as plcustomer
+        }
+
+    }
+}
+frame "Microsoft subscription" as main {
+
+    frame "App VNET" as vnet{
+        frame "App subnet" as subnet{
+            rectangle "Web server" as web
+            rectangle "SSH server" as ssh
+        }
+        queue "NAT Gateway" as NAT
+        frame "Privatelink NAT subnet" as nat_subnet{
+
+        }
+        component "Load Balancer" as lb 
+        entity "Private Link Service" as plep
+    }
+}
+
+
+
+plep <-right0)-> plcustomer: "PrivateLink"
+web --> lb
+ssh --> lb
+lb --> plep
+
+vm --> plcustomer
+subnet -right-> NAT
+NAT -up-> internet
+
+plep -left-> nat_subnet
+
+@enduml
