@@ -163,7 +163,7 @@
                 "osProfile": {
                     "computerName": "[variables('vmname')]",
                     "adminUsername": "adminUsername",
-                    "adminPassword": "adminPassword123"
+                    "adminPassword": "adminPassword123" //plesae change this is you plan to use this template
                 },
                 "storageProfile": {
                     "imageReference": {
