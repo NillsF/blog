@@ -15,7 +15,7 @@
             "identity": {
                 "type": "UserAssigned",
                 "userAssignedIdentities": {
-                    "/subscriptions/d19dddf3-9520-4226-a313-ae8ee08675e5/resourceGroups/deployment-script-demo/providers/Microsoft.ManagedIdentity/userAssignedIdentities/deployment-script-to-queue": {}
+                   "clientId": "660ec7c1-8b0f-409f-83a8-ef66acef7042"
                 }
             },
             "location": "[resourceGroup().location]",
