@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: node
-        image: nfchat.azurecr.io/nodejs-ip
+        image: nfranssens/nodejs-ip
         ports:
         - containerPort: 8080
 ---
