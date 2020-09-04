@@ -75,3 +75,22 @@ $secret = Get-AzKeyVaultSecret -VaultName $kvname -Name "$staccname-$SASDefiniti
 $secret.SecretValueText
 $secret = Get-AzKeyVaultSecret -VaultName $kvname -Name "$staccname2-$SASDefinitionName2"
 $secret.SecretValueText
+
+# # Change SAS token to include read for second account
+# Remove-AzKeyVaultManagedStorageSasDefinition -AccountName $staccname2 -VaultName $kvname `
+# -Name $SASDefinitionName2
+
+
+# $storageContext = New-AzStorageContext -StorageAccountName $staccname2 -Protocol Https -StorageAccountKey Key1 
+# $start = [System.DateTime]::Now.AddDays(-1)
+# $end = [System.DateTime]::Now.AddMonths(1)
+
+# $sasToken = New-AzStorageAccountSasToken -Service blob -ResourceType Container,Object -Permission "wlr" -Protocol HttpsOnly -StartTime $start -ExpiryTime $end -Context $storageContext
+
+# # Need to give this a new name due to default key-vault soft delete behavior
+# $newSasName = $SASDefinitionName2 + "bis"
+# Set-AzKeyVaultManagedStorageSasDefinition -AccountName $staccname2 -VaultName $kvname `
+# -Name $newSasName -TemplateUri $sasToken -SasType 'account' -ValidityPeriod ([System.Timespan]::FromDays(1))
+
+# $secret = Get-AzKeyVaultSecret -VaultName $kvname -Name "$staccname2-$newSasName"
+# $secret.SecretValueText
