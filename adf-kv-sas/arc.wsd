@@ -1,0 +1,19 @@
+@startuml ADF-SAS
+
+title Azure Data Factory getting SAS from Key Vault
+
+storage  "Storage Account 1" as stacc1
+storage  "Storage Account 2" as stacc2
+node "Key Vault" as kv
+
+
+queue  "Azure Data Factory" as adf 
+
+kv ..> stacc1 : "Manages key"
+kv ..> stacc2 : "Manages key"
+
+adf --> kv : "Get SAS token for \naccount 1 and 2."
+adf <== stacc1: "Read from account 1"
+adf ==> stacc2: "Write to account 2"
+
+@enduml
