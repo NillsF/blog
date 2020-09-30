@@ -82,13 +82,14 @@ def resizeDisksToStandardSSD(diskIDs):
         logging.warning("Changing level in subscription {}".format(sub))
         logging.warning("Resource group \t diskname")
         for disk in diskIDs:
-            rgName = disk['id'].split('/')[4]
-            diskName = disk['id'].split('/')[8]
-            logging.warning("{}\t{}".format(rgName,diskName))
-            disk = compute_client.disks.get(rgName,diskName)
-            disk.sku = newSKU
-            async_disk_update = compute_client.disks.begin_create_or_update(rgName,diskName,disk)
-            async_disk_update.wait()
+            if (disk['id'].split('/')[2] == sub):
+                rgName = disk['id'].split('/')[4]
+                diskName = disk['id'].split('/')[8]
+                logging.warning("{}\t{}".format(rgName,diskName))
+                disk = compute_client.disks.get(rgName,diskName)
+                disk.sku = newSKU
+                async_disk_update = compute_client.disks.begin_create_or_update(rgName,diskName,disk)
+                async_disk_update.wait()
     return True
 
 def main():
