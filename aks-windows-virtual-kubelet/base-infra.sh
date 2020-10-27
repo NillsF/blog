@@ -2,12 +2,12 @@
 export VNET_RANGE=10.0.0.0/8
 export CLUSTER_SUBNET_RANGE=10.240.0.0/16
 export ACI_SUBNET_RANGE=10.241.0.0/16
-export VNET_NAME=AKS-win-ACI-vk
+export VNET_NAME=AKS-win-ACI
 export CLUSTER_SUBNET_NAME=AKS
 export ACI_SUBNET_NAME=ACI
-export AKS_CLUSTER_RG=AKS-win-ACI-vk
+export AKS_CLUSTER_RG=AKS-win-ACI
 export KUBE_DNS_IP=10.0.0.10
-export AKS_CLUSTER_NAME=AKS-win-ACI-vk
+export AKS_CLUSTER_NAME=AKS-win-ACI
 export LOCATION=westus2
 
 # create RG
@@ -40,7 +40,7 @@ export VNET_SUBNET_ID=`az network vnet subnet show --resource-group $AKS_CLUSTER
 # create sp
 echo "### Creating service principal ### "
 
-export SP=`az ad sp create-for-rbac -n "nf-vk-aci-win" `
+export SP=`az ad sp create-for-rbac -n "vk-aci-win" `
 export AZURE_TENANT_ID=`echo $SP | jq .tenant | tr -d '"'`
 export AZURE_CLIENT_ID=`echo $SP | jq .appId | tr -d '"'`
 export AZURE_CLIENT_SECRET=`echo $SP | jq .password | tr -d '"'`
@@ -70,5 +70,5 @@ az aks get-credentials \
     --resource-group $AKS_CLUSTER_RG \
     --name $AKS_CLUSTER_NAME
 
-
-export MASTER_URI=`kubectl cluster-info | grep "Kubernetes master" | awk '{print $6}'`
+# Sed command is to remove the color special characters. source: https://stackoverflow.com/a/18000433
+export MASTER_URI=`kubectl cluster-info | grep "Kubernetes master" | awk '{print $6}'  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g"`
