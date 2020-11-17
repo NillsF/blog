@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: win-webserver
+  name: win-webserver
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: win-webserver
+  template:
+    metadata:
+      labels:
+        app: win-webserver
+      name: win-webserver
+    spec:
+     containers:
+      - name: windowswebserver
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        - containerPort: 443
+          name: https
+        image: mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2019
+     nodeSelector:
+      kubernetes.io/os: windows
