@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: access-blob
+  label:
+    aadpodidbinding: access-blob
+spec:
+  selector:
+    matchLabels:
+      app: access-blob
+  template:
+    metadata:
+      labels:
+        app: access-blob
+        aadpodidbinding: access-blob
+    spec:
+      containers:
+      - name: azure-cli
+        image: mcr.microsoft.com/azure-cli
+        command: [ "/bin/bash", "-c", "sleep inf" ]
