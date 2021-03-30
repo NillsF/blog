@@ -16,7 +16,9 @@ vm_ip_range = "192.168.16.0/24"
 
 ssh_key = "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAslS5LnoCJlj8OE4VncUK2iP6YhVT/RmeNkvP3VTd/GbiZd384wrD0rzr3MwEgMm4ZkjUQno54x+bpRhIFDha4Kj89cs7LwuPHZSkXLF+aVydxy2nu464TmflnhVVW71wLE9E3bCUxmh5+IZ3sJ8is2XQMuC1IHiIoEMFc+buMTG+kVc3f+VaJ5ZT+bFPjqs816YBPTSZRmUjzfwRcLIRXvlVxlFsMckhSTa7xCCxunsGKITOnqmlk/vIWr/bKfev6RD+qV8DFquM0zxquwcSv5ERXE384m6ESJ/YJ4IN5P14CDWT3pdZtwM1jOaL/zPyMHbamk5iTPLfuPao740plQ=="
 # Create an Azure Resource Group
-resource_group = resources.ResourceGroup(prefix_name+"-rg" , resource_group_name = (prefix_name+"-rg") )
+resource_group = resources.ResourceGroup(
+    prefix_name+"-rg",
+    resource_group_name=(prefix_name+"-rg"))
 
 # Create network security group
 nsg = network.NetworkSecurityGroup(
@@ -35,27 +37,30 @@ nsg = network.NetworkSecurityGroup(
         source_port_range="*",
     )])
 # Create a VNET
-vnet = network.VirtualNetwork(prefix_name+"-vnet",
+vnet = network.VirtualNetwork(
+    prefix_name+"-vnet",
     address_space=network.AddressSpaceArgs(
         address_prefixes=[vnet_ip_range],
     ),
     resource_group_name=resource_group.name,
-    virtual_network_name=( prefix_name+"-vnet" ) )
+    virtual_network_name=(prefix_name+"-vnet"))
 
-aks_subnet = network.Subnet("aks-subnet",
+aks_subnet = network.Subnet(
+    "aks-subnet",
     address_prefix=aks_ip_range,
     resource_group_name=resource_group.name,
     subnet_name="aks-subnet",
     virtual_network_name=vnet.name)
 
-vm_subnet = network.Subnet("vm-subnet",
+vm_subnet = network.Subnet(
+    "vm-subnet",
     address_prefix=vm_ip_range,
     resource_group_name=resource_group.name,
     subnet_name="vm-subnet",
     virtual_network_name=vnet.name,
     network_security_group=network.NetworkSecurityGroupArgs(
         id=nsg.id
-    )    )
+    ))
 
 
 # Create AKS cluster
@@ -76,7 +81,8 @@ aks_cluster = containerservice.ManagedCluster(
     ),
     dns_prefix=prefix_name,
     enable_rbac=True,
-    identity=containerservice.ManagedClusterIdentityArgs(type=containerservice.ResourceIdentityType.SYSTEM_ASSIGNED),
+    identity=containerservice.ManagedClusterIdentityArgs(
+        type=containerservice.ResourceIdentityType.SYSTEM_ASSIGNED),
     linux_profile=containerservice.ContainerServiceLinuxProfileArgs(
         admin_username="nilfranadmin",
         ssh=containerservice.ContainerServiceSshConfigurationArgs(
@@ -99,7 +105,7 @@ aks_cluster = containerservice.ManagedCluster(
 
 # Create VM
 pip = network.PublicIPAddress(
-    resource_name = (prefix_name+"-pip"),
+    resource_name=(prefix_name+"-pip"),
     public_ip_address_name=(prefix_name+"-pip"),
     resource_group_name=resource_group.name
 )
@@ -117,11 +123,11 @@ nic = network.NetworkInterface(
         ),
     )],
     network_interface_name=(prefix_name+"-nic"),
-    resource_group_name = resource_group.name
+    resource_group_name=resource_group.name
 )
 
 vm = compute.VirtualMachine(
-    resource_name = (prefix_name + "-vm"),
+    resource_name=(prefix_name + "-vm"),
     hardware_profile=compute.HardwareProfileArgs(
         vm_size="Standard_D2s_v4",
     ),
@@ -138,7 +144,7 @@ vm = compute.VirtualMachine(
             disable_password_authentication=True,
             ssh=compute.SshConfigurationArgs(
                 public_keys=[compute.SshPublicKeyArgs(
-                    key_data = ssh_key,
+                    key_data=ssh_key,
                     path="/home/nilfranadmin/.ssh/authorized_keys",
                 )],
             ),
@@ -163,4 +169,3 @@ vm = compute.VirtualMachine(
     ),
     vm_name=(prefix_name + "-vm")
 )
-
