@@ -1,0 +1,6 @@
+name: pulumi-aks-private
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: Private AKS cluster using Pulumi

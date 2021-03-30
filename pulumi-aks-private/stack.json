@@ -1,0 +1,274 @@
+{
+    "version": 3,
+    "deployment": {
+        "manifest": {
+            "time": "2021-03-29T18:22:18.8582314-07:00",
+            "magic": "663b68ac2ce8ea3b3ac79ad14b7e8a6949d5ef3b010c333362f3aab2a1eca5de",
+            "version": "v2.23.2"
+        },
+        "secrets_providers": {
+            "type": "service",
+            "state": {
+                "url": "https://api.pulumi.com",
+                "owner": "NillsF",
+                "project": "pulumi-aks-private",
+                "stack": "dev"
+            }
+        },
+        "resources": [
+            {
+                "urn": "urn:pulumi:dev::pulumi-aks-private::pulumi:pulumi:Stack::pulumi-aks-private-dev",
+                "custom": false,
+                "type": "pulumi:pulumi:Stack"
+            },
+            {
+                "urn": "urn:pulumi:dev::pulumi-aks-private::pulumi:providers:azure-native::default_0_7_1",
+                "custom": true,
+                "id": "5346fd18-d0f4-476f-a97a-5dac79c70d3e",
+                "type": "pulumi:providers:azure-native",
+                "inputs": {
+                    "location": "westus2",
+                    "version": "0.7.1"
+                },
+                "outputs": {
+                    "location": "westus2",
+                    "version": "0.7.1"
+                }
+            },
+            {
+                "urn": "urn:pulumi:dev::pulumi-aks-private::azure-native:resources:ResourceGroup::pulumiAKS-rg",
+                "custom": true,
+                "id": "/subscriptions/d19dddf3-9520-4226-a313-ae8ee08675e5/resourceGroups/pulumiAKS-rg",
+                "type": "azure-native:resources:ResourceGroup",
+                "inputs": {
+                    "location": "westus2",
+                    "resourceGroupName": "pulumiAKS-rg"
+                },
+                "outputs": {
+                    "__inputs": {
+                        "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+                        "ciphertext": "AAABAI3aCM+cvatJ7oMhTp0gI4Q++74BYI9b3sWDpQ/CqYlgjvJKut6hoWHVumBVh3/JeY8bH3W5t9LETycBTPIAGSGlnAT0vCsm+LvWuqqmBxx40vYdu84="
+                    },
+                    "id": "/subscriptions/d19dddf3-9520-4226-a313-ae8ee08675e5/resourceGroups/pulumiAKS-rg",
+                    "location": "westus2",
+                    "name": "pulumiAKS-rg",
+                    "properties": {
+                        "provisioningState": "Succeeded"
+                    },
+                    "type": "Microsoft.Resources/resourceGroups"
+                },
+                "parent": "urn:pulumi:dev::pulumi-aks-private::pulumi:pulumi:Stack::pulumi-aks-private-dev",
+                "provider": "urn:pulumi:dev::pulumi-aks-private::pulumi:providers:azure-native::default_0_7_1::5346fd18-d0f4-476f-a97a-5dac79c70d3e",
+                "propertyDependencies": {
+                    "resourceGroupName": null
+                },
+                "aliases": [
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:resources:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:resources/latest:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:resources/latest:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:resources/v20151101:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:resources/v20151101:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:resources/v20160201:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:resources/v20160201:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:resources/v20160701:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:resources/v20160701:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:resources/v20160901:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:resources/v20160901:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:resources/v20170510:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:resources/v20170510:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:resources/v20180201:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:resources/v20180201:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:resources/v20180501:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:resources/v20180501:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:resources/v20190301:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:resources/v20190301:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:resources/v20190501:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:resources/v20190501:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:resources/v20190510:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:resources/v20190510:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:resources/v20190701:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:resources/v20190701:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:resources/v20190801:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:resources/v20190801:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:resources/v20191001:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:resources/v20191001:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:resources/v20200601:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:resources/v20200601:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:resources/v20200801:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:resources/v20200801:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:resources/v20201001:ResourceGroup::pulumiAKS-rg",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:resources/v20201001:ResourceGroup::pulumiAKS-rg"
+                ]
+            },
+            {
+                "urn": "urn:pulumi:dev::pulumi-aks-private::azure-native:network:VirtualNetwork::pulumiAKS-vnet",
+                "custom": true,
+                "id": "/subscriptions/d19dddf3-9520-4226-a313-ae8ee08675e5/resourceGroups/pulumiAKS-rg/providers/Microsoft.Network/virtualNetworks/pulumiAKS-vnet",
+                "type": "azure-native:network:VirtualNetwork",
+                "inputs": {
+                    "addressSpace": {
+                        "addressPrefixes": [
+                            "192.168.0.0/16"
+                        ]
+                    },
+                    "enableDdosProtection": false,
+                    "enableVmProtection": false,
+                    "location": "westus2",
+                    "resourceGroupName": "pulumiAKS-rg",
+                    "subnets": [
+                        {
+                            "addressPrefix": "192.168.0.0/20",
+                            "name": "aks-subnet",
+                            "privateEndpointNetworkPolicies": "Enabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled"
+                        },
+                        {
+                            "addressPrefix": "192.168.16.0/24",
+                            "name": "vm-subnet",
+                            "privateEndpointNetworkPolicies": "Enabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled"
+                        }
+                    ],
+                    "virtualNetworkName": "pulumiAKS-vnet"
+                },
+                "outputs": {
+                    "__inputs": {
+                        "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+                        "ciphertext": "AAABAMiDAmweAD4wdjsBQaDPr0iJO+krNuniCTXrus2ZnmmYw8GvlzQXgILgfd84p3+hmHYJ88epfmt6hAFDOn72tO9YWe5M4XI+4PIbPC82LO2lvWIgEQPG+G/hb50frNs93phDO6mG+wAckHo6906y7IWwaUhPZ3HH9VexZsyIa53D5bydxh5OYCt4jn8CjTKRbK/KO6mborK9Dk2tSUuFoyOOgp2+gJXs5rVCzYkdUb+DPe5UZm0gQQOELL8pQXmYAtTvqnxqplcSBmSrF+mh0DNG9yPJpJqPjY7PDw7bZZm8JkpM7k9UtHmI/tLZOzu8OgDNmclSU89wElFJY9Uvx8mUX/1cRkc97ACNSXFI0FoNyPMQn440Fd0HI3Q7rb/+aI5vzbNl6tJ8wk+d7vs8vgy9ESebMzEZFNlcoCW41hg12kQl/H4B5UEZYIFqWRQClB4dYj6+ncJmyDXkz27kHiMbKbOR4xDN67yvNJ7ewbZ2OSkurZdjBoUydJf50WJWS2RPo8tyZ6gzUEA6ib29kns/9S4vUr99I+WVHq79Nm9/Ud9Cpc/qFqZXplkNwJBfNFQgT/vnDepuKn3oo+8t48y60OMgoYugdHKKXtX6WZwcEVFNVQ8aVrq0qvx2l+N8IPE2xawT0vF+J6uSHBrOXe3+lx9WXGULXnUy5lQkc/uLsVrORNHurUo7w+qgW7gWNPo1Buz4"
+                    },
+                    "addressSpace": {
+                        "addressPrefixes": [
+                            "192.168.0.0/16"
+                        ]
+                    },
+                    "enableDdosProtection": false,
+                    "etag": "W/\"ecd2e118-0f21-4cd1-ba92-057eb5705622\"",
+                    "id": "/subscriptions/d19dddf3-9520-4226-a313-ae8ee08675e5/resourceGroups/pulumiAKS-rg/providers/Microsoft.Network/virtualNetworks/pulumiAKS-vnet",
+                    "location": "westus2",
+                    "name": "pulumiAKS-vnet",
+                    "provisioningState": "Succeeded",
+                    "resourceGuid": "67773a3d-c9cc-4dd2-bbdc-a126818c0e70",
+                    "subnets": [
+                        {
+                            "addressPrefix": "192.168.0.0/20",
+                            "delegations": [],
+                            "etag": "W/\"ecd2e118-0f21-4cd1-ba92-057eb5705622\"",
+                            "id": "/subscriptions/d19dddf3-9520-4226-a313-ae8ee08675e5/resourceGroups/pulumiAKS-rg/providers/Microsoft.Network/virtualNetworks/pulumiAKS-vnet/subnets/aks-subnet",
+                            "name": "aks-subnet",
+                            "privateEndpointNetworkPolicies": "Enabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled",
+                            "provisioningState": "Succeeded",
+                            "type": "Microsoft.Network/virtualNetworks/subnets"
+                        },
+                        {
+                            "addressPrefix": "192.168.16.0/24",
+                            "delegations": [],
+                            "etag": "W/\"ecd2e118-0f21-4cd1-ba92-057eb5705622\"",
+                            "id": "/subscriptions/d19dddf3-9520-4226-a313-ae8ee08675e5/resourceGroups/pulumiAKS-rg/providers/Microsoft.Network/virtualNetworks/pulumiAKS-vnet/subnets/vm-subnet",
+                            "name": "vm-subnet",
+                            "privateEndpointNetworkPolicies": "Enabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled",
+                            "provisioningState": "Succeeded",
+                            "type": "Microsoft.Network/virtualNetworks/subnets"
+                        }
+                    ],
+                    "type": "Microsoft.Network/virtualNetworks",
+                    "virtualNetworkPeerings": []
+                },
+                "parent": "urn:pulumi:dev::pulumi-aks-private::pulumi:pulumi:Stack::pulumi-aks-private-dev",
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:resources:ResourceGroup::pulumiAKS-rg"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aks-private::pulumi:providers:azure-native::default_0_7_1::5346fd18-d0f4-476f-a97a-5dac79c70d3e",
+                "propertyDependencies": {
+                    "addressSpace": null,
+                    "enableDdosProtection": null,
+                    "enableVmProtection": null,
+                    "resourceGroupName": [
+                        "urn:pulumi:dev::pulumi-aks-private::azure-native:resources:ResourceGroup::pulumiAKS-rg"
+                    ],
+                    "subnets": null,
+                    "virtualNetworkName": null
+                },
+                "aliases": [
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/latest:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/latest:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20150501preview:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20150501preview:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20150615:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20150615:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20160330:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20160330:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20160601:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20160601:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20160901:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20160901:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20161201:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20161201:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20170301:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20170301:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20170601:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20170601:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20170801:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20170801:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20170901:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20170901:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20171001:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20171001:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20171101:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20171101:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20180101:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20180101:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20180201:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20180201:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20180401:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20180401:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20180601:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20180601:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20180701:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20180701:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20180801:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20180801:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20181001:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20181001:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20181101:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20181101:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20181201:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20181201:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20190201:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20190201:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20190401:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20190401:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20190601:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20190601:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20190701:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20190701:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20190801:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20190801:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20190901:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20190901:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20191101:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20191101:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20191201:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20191201:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20200301:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20200301:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20200401:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20200401:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20200501:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20200501:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20200601:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20200601:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20200701:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20200701:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-native:network/v20200801:VirtualNetwork::pulumiAKS-vnet",
+                    "urn:pulumi:dev::pulumi-aks-private::azure-nextgen:network/v20200801:VirtualNetwork::pulumiAKS-vnet"
+                ]
+            }
+        ],
+        "pending_operations": [
+           
+        ]
+    }
+}
