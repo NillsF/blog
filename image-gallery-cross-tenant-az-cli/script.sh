@@ -34,8 +34,18 @@ echo pw
 # Create role assignment
 az role assignment create --assignee $appid --role "Reader" --scope $sigid
 
+
+####
 # Now login to the other tenant
+####
 az login
 
 # Now create an SP in this tenant, using the same app
 az ad sp create --id $appid
+
+# Give this SP permissions to create stuff
+az role assignment create --assignee $appid --role "Contributor"
+### 
+# To create VM, login using the SP to both tenants now.
+# this can be found documented here:  https://docs.microsoft.com/en-us/azure/virtual-machines/linux/share-images-across-tenants
+###
