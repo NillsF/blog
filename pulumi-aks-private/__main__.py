@@ -110,7 +110,6 @@ pip = network.PublicIPAddress(
     resource_group_name=resource_group.name
 )
 
-
 nic = network.NetworkInterface(
     resource_name=(prefix_name+"-nic"),
     ip_configurations=[network.NetworkInterfaceIPConfigurationArgs(
