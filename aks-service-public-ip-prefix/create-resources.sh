@@ -6,13 +6,7 @@
 az group create -n aks-prefix -l westus2
 az aks create -g aks-prefix -n aks-prefix -l westus2 --enable-managed-identity --node-count 1 --generate-ssh-keys
 az aks get-credentials -g aks-prefix -n aks-prefix
-# giving permissions on the RG
-RGID=$(az group show -n aks-prefix -o tsv --query id )
-APPID=$(az aks show -n aks-prefix -g aks-prefix --query "identity.principalId" -o tsv)
-az role assignment create \
-    --assignee $APPID \
-    --role "Network Contributor" \
-    --scope $RGID
+
 
 # creating public ip prefix
 az network public-ip prefix create \
@@ -30,6 +24,16 @@ az network public-ip create \
     --public-ip-prefix pip-prefix \
     --sku Standard \
     --version IPv4
+
+# giving permissions on the RG
+RGID=$(az group show -n aks-prefix -o tsv --query id )
+APPID=$(az aks show -n aks-prefix -g aks-prefix --query "identity.principalId" -o tsv)
+az role assignment create \
+    --assignee $APPID \
+    --role "Network Contributor" \
+    --scope $RGID
+
+
 # getting public ip output
 az network public-ip show \
     -n pip-for-aks \
