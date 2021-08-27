@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp
+  annotations:
+        service.beta.kubernetes.io/azure-load-balancer-resource-group: aks-prefix
+spec:
+  selector:
+    app: myapp
+  ports:
+  - port: 80
+    targetPort: 80
+  type: LoadBalancer
+  loadBalancerIP: <your-public-ip>
+
