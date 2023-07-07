@@ -3,4 +3,4 @@
 *.out
 *.tfstate.backup
 azurek8s
-.env
+langchain-azure-openai/.env
