@@ -3,3 +3,4 @@
 *.out
 *.tfstate.backup
 azurek8s
+.env
