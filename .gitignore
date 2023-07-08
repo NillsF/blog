@@ -4,3 +4,4 @@
 *.tfstate.backup
 azurek8s
 langchain-azure-openai/.env
+langchain-azure-openai/chat.env
