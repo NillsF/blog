@@ -1,0 +1,13 @@
+{
+    "name": "Default Codespace",
+    "image": "mcr.microsoft.com/devcontainers/universal:2",
+    "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "ms-python.python",
+        "ms-vscode.vscode-node-azure-pack",
+        "ms-kubernetes-tools.vscode-aks-tools",
+        "ms-kubernetes-tools.vscode-kubernetes-tools"
+    ]
+  }
+  
